@@ -198,7 +198,7 @@ int main ( void )
 //    DAC_DataWrite(dac_count);
     while (1)
     {
-            // Check if there is a received character
+        // Check if there is a received character
         if(SERCOM3_USART_ReceiverIsReady() == true)
         {
             if(SERCOM3_USART_ErrorGet() == USART_ERROR_NONE)
