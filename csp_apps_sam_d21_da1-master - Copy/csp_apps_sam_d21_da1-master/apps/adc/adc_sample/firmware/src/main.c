@@ -57,8 +57,6 @@
 #define DAC_COUNT_INCREMENT     (31U)    // equivalent to 0.1V (0.1 / (3.3 / ((2^10) - 1))) 
 #define DAC_COUNT_MAX           (511)
 #define RX_BUFFER_SIZE 256
-#define LED_ON    LED_Clear
-#define LED_OFF   LED_Set
 
 
 uint16_t adc_count;
@@ -70,6 +68,8 @@ char newline[] = "\r\n";
 char errorMessage[] = "\r\n**** USART error has occurred ****\r\n";
 char receiveBuffer[RX_BUFFER_SIZE] = {};
 char data = 0;
+
+static void EIC_User_Handler(uintptr_t context);
 
 
 void mySysTickEventHandler(uintptr_t context){
@@ -176,18 +176,21 @@ void mySysTickEventHandler1(uintptr_t context){
 
 int main ( void )
 {
-    uint16_t rxCounter=0;
+    //uint16_t rxCounter=0;
     
     /* Initialize all modules */
     SYS_Initialize ( NULL );
+    LED_Set();
+    
         /* Send start message */
     SERCOM3_USART_Write(&messageStart[0], sizeof(messageStart));
    
     
     //SYSTICK_TimerCallbackSet(&mySysTickEventHandler, (uintptr_t) NULL);
-    EIC_CallbackRegister(EIC_PIN_15, mySysTickEventHandler, (uintptr_t) NULL);
+//    EIC_CallbackRegister(EIC_PIN_15, mySysTickEventHandler, (uintptr_t) NULL);
+    EIC_CallbackRegister(EIC_PIN_15,EIC_User_Handler, 0);
     
-    ADC_Enable();
+//    ADC_Enable();
     //SYSTICK_TimerStart();
     
 //    printf("\n\r---------------------------------------------------------");
@@ -198,31 +201,32 @@ int main ( void )
 //    DAC_DataWrite(dac_count);
     while (1)
     {
+        SYS_Tasks ( );
         // Check if there is a received character
-        if(SERCOM3_USART_ReceiverIsReady() == true)
-        {
-            if(SERCOM3_USART_ErrorGet() == USART_ERROR_NONE)
-            {
-                SERCOM3_USART_Read(&data, 1);
-
-                if((data == '\n') || (data == '\r'))
-                {
-                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
-                    SERCOM3_USART_Write(&receiveBuffer[0],rxCounter);
-                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
-                    rxCounter = 0;
-                    LED_Toggle();
-                }
-                else
-                {
-                    receiveBuffer[rxCounter++] = data;
-                }
-            }
-            else
-            {
-                SERCOM3_USART_Write(&errorMessage[0],sizeof(errorMessage));
-            }
-        }
+//        if(SERCOM3_USART_ReceiverIsReady() == true)
+//        {
+//            if(SERCOM3_USART_ErrorGet() == USART_ERROR_NONE)
+//            {
+//                SERCOM3_USART_Read(&data, 1);
+//
+//                if((data == '\n') || (data == '\r'))
+//                {
+//                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
+//                    SERCOM3_USART_Write(&receiveBuffer[0],rxCounter);
+//                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
+//                    rxCounter = 0;
+//                    LED_Toggle();
+//                }
+//                else
+//                {
+//                    receiveBuffer[rxCounter++] = data;
+//                }
+//            }
+//            else
+//            {
+//                SERCOM3_USART_Write(&errorMessage[0],sizeof(errorMessage));
+//            }
+//        }
         /* Start ADC conversion */
 //        ADC_ConversionStart();
 
@@ -245,6 +249,10 @@ int main ( void )
     return ( EXIT_FAILURE );
 }
 
+static void EIC_User_Handler(uintptr_t context)
+{
+    LED_Toggle();
+}
 
 /*******************************************************************************
  End of File

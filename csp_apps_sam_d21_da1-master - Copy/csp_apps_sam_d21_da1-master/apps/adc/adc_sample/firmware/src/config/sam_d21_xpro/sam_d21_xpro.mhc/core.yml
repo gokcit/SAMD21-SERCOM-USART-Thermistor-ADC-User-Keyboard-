@@ -191,7 +191,7 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
   - type: String
     attributes: {id: EIC_INTERRUPT_HANDLER}
     children:
@@ -422,14 +422,16 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
+      - type: User
+        attributes: {value: 'false'}
   - type: Boolean
     attributes: {id: NVIC_-1_0_HANDLER_LOCK}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
   - type: Boolean
     attributes: {id: NVIC_12_0_ENABLE}
     children:
@@ -459,7 +461,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '0'}
+        attributes: {value: '3'}
   - type: Boolean
     attributes: {id: NVIC_4_0_ENABLE}
     children:
@@ -468,7 +470,7 @@ children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
       - type: User
-        attributes: {value: 'false'}
+        attributes: {value: 'true'}
   - type: String
     attributes: {id: NVIC_4_0_HANDLER}
     children:
@@ -489,7 +491,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '3'}
+        attributes: {value: '1'}
   - type: Integer
     attributes: {id: OSC8M_CLOCK_FREQ}
     children:
@@ -2108,6 +2110,13 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '31'}
   - type: String
+    attributes: {id: PIN_59_DIR}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: Out}
+  - type: String
     attributes: {id: PIN_59_FUNCTION_NAME}
     children:
     - type: Values
@@ -2128,6 +2137,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '1'}
+  - type: String
+    attributes: {id: PIN_59_INEN}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: ''}
   - type: String
     attributes: {id: PIN_59_MODE}
     children:
@@ -2605,6 +2621,13 @@ children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
   - type: String
+    attributes: {id: PORT_GROUP_1_DIR}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x40000000'}
+  - type: String
     attributes: {id: PORT_GROUP_1_PAD_30}
     children:
     - type: Values
@@ -2681,42 +2704,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: sercom3, value: 'false'}
-  - type: File
-    attributes: {id: SYSTICK_FILE_0}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: enabled}
-        children:
-        - {type: Value, value: 'true'}
-  - type: File
-    attributes: {id: SYSTICK_FILE_1}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: enabled}
-        children:
-        - {type: Value, value: 'true'}
-  - type: File
-    attributes: {id: SYSTICK_FILE_2}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: enabled}
-        children:
-        - {type: Value, value: 'true'}
-  - type: Menu
-    attributes: {id: SYSTICK_MENU_0}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: String
     attributes: {id: SYSTICK_PERIOD}
     children:
@@ -2746,43 +2733,40 @@ children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
   - type: Boolean
     attributes: {id: SysTick_INTERRUPT_ENABLE_UPDATE}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'false'}
+        attributes: {id: core, value: 'true'}
   - type: Boolean
     attributes: {id: SysTick_INTERRUPT_HANDLER_LOCK}
     children:
     - type: Values
       children:
       - type: Dynamic
-        attributes: {id: core, value: 'true'}
+        attributes: {id: core, value: 'false'}
   - type: Boolean
     attributes: {id: USE_SYSTICK_INTERRUPT}
     children:
+    - type: Attributes
+      children:
+      - type: Boolean
+        attributes: {id: readOnly}
+        children:
+        - {type: Value, value: 'false'}
     - type: Values
       children:
-      - type: User
-        attributes: {value: 'true'}
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
   - type: Boolean
     attributes: {id: systickEnable}
     children:
     - type: Values
       children:
       - type: User
-        attributes: {value: 'true'}
-  - type: File
-    attributes: {id: systickSystemInitFile}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: enabled}
-        children:
-        - {type: Value, value: 'true'}
+        attributes: {value: 'false'}
 - type: ElementPosition
   attributes: {x: '170', y: '60', id: core}

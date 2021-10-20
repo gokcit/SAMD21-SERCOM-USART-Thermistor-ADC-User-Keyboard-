@@ -52,15 +52,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: eic, value: '32768'}
-  - type: Comment
-    attributes: {id: EIC_INTERRUPT_ENABLE_COMMENT}
-    children:
-    - type: Attributes
-      children:
-      - type: Boolean
-        attributes: {id: visible}
-        children:
-        - {type: Value, value: 'true'}
   - type: Boolean
     attributes: {id: EIC_INT_15}
     children:
