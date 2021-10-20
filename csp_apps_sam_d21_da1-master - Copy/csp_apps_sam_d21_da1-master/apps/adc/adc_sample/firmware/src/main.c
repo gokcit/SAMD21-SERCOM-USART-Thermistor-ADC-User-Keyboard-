@@ -56,11 +56,21 @@
 #define ADC_VREF                (1650)   //1650 mV (1.65V)
 #define DAC_COUNT_INCREMENT     (31U)    // equivalent to 0.1V (0.1 / (3.3 / ((2^10) - 1))) 
 #define DAC_COUNT_MAX           (511)
+#define RX_BUFFER_SIZE 256
+#define LED_ON    LED_Clear
+#define LED_OFF   LED_Set
+
 
 uint16_t adc_count;
-uint32_t input_voltage;
-/* Initial value of dac count which is midpoint = 1.65 V*/
-uint16_t dac_count = 0x100;   
+uint32_t input_voltage;  
+char messageStart[] = "**** USART Line Echo Demo: Blocking Transfer without the interrupt ****\r\n\
+**** Type a line of characters and press the Enter key. **** \r\n\
+**** Entered line will be echoed back, and the LED is toggled. ****\r\n";
+char newline[] = "\r\n";
+char errorMessage[] = "\r\n**** USART error has occurred ****\r\n";
+char receiveBuffer[RX_BUFFER_SIZE] = {};
+char data = 0;
+
 
 void mySysTickEventHandler(uintptr_t context){
         
@@ -166,23 +176,53 @@ void mySysTickEventHandler1(uintptr_t context){
 
 int main ( void )
 {
+    uint16_t rxCounter=0;
+    
     /* Initialize all modules */
     SYS_Initialize ( NULL );
+        /* Send start message */
+    SERCOM3_USART_Write(&messageStart[0], sizeof(messageStart));
+   
     
-    SYSTICK_TimerCallbackSet(&mySysTickEventHandler, (uintptr_t) NULL);
-//    EIC_CallbackRegister(EIC_PIN_15, mySysTickEventHandler, (uintptr_t) NULL);
+    //SYSTICK_TimerCallbackSet(&mySysTickEventHandler, (uintptr_t) NULL);
+    EIC_CallbackRegister(EIC_PIN_15, mySysTickEventHandler, (uintptr_t) NULL);
     
-//    ADC_Enable();
-    SYSTICK_TimerStart();
+    ADC_Enable();
+    //SYSTICK_TimerStart();
     
-    printf("\n\r---------------------------------------------------------");
-    printf("\n\r                    ADC Sample Demo                 ");
-    printf("\n\r---------------------------------------------------------\n\r");
+//    printf("\n\r---------------------------------------------------------");
+//    printf("\n\r                    ADC Sample Demo                 ");
+//    printf("\n\r---------------------------------------------------------\n\r");
 //    EIC_CallbackRegister(EIC_PIN_15, switch_handler, (uintptr_t) NULL);
     
 //    DAC_DataWrite(dac_count);
     while (1)
     {
+            // Check if there is a received character
+        if(SERCOM3_USART_ReceiverIsReady() == true)
+        {
+            if(SERCOM3_USART_ErrorGet() == USART_ERROR_NONE)
+            {
+                SERCOM3_USART_Read(&data, 1);
+
+                if((data == '\n') || (data == '\r'))
+                {
+                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
+                    SERCOM3_USART_Write(&receiveBuffer[0],rxCounter);
+                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
+                    rxCounter = 0;
+                    LED_Toggle();
+                }
+                else
+                {
+                    receiveBuffer[rxCounter++] = data;
+                }
+            }
+            else
+            {
+                SERCOM3_USART_Write(&errorMessage[0],sizeof(errorMessage));
+            }
+        }
         /* Start ADC conversion */
 //        ADC_ConversionStart();
 

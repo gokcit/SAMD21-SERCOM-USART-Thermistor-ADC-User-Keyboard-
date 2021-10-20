@@ -4,6 +4,20 @@ attributes: {id: dac}
 children:
 - type: Symbols
   children:
+  - type: Boolean
+    attributes: {id: DAC_BUFFER_EMPTY_EVENT_OUTPUT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
+  - type: Hex
+    attributes: {id: DAC_EVCTRL}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: dac, value: '0'}
   - type: KeyValueSet
     attributes: {id: DAC_OUTPUT_MODE}
     children:
@@ -18,5 +32,12 @@ children:
       children:
       - type: User
         attributes: {value: '1'}
+  - type: Boolean
+    attributes: {id: DAC_START_CONVERSION_EVENT_INPUT}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: 'false'}
 - type: ElementPosition
   attributes: {x: '190', y: '100', id: dac}
