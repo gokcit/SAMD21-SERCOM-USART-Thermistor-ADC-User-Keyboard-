@@ -461,7 +461,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '3'}
+        attributes: {value: '1'}
   - type: Boolean
     attributes: {id: NVIC_4_0_ENABLE}
     children:
@@ -491,7 +491,7 @@ children:
     - type: Values
       children:
       - type: User
-        attributes: {value: '1'}
+        attributes: {value: '2'}
   - type: Integer
     attributes: {id: OSC8M_CLOCK_FREQ}
     children:
@@ -583,13 +583,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '9'}
-  - type: String
-    attributes: {id: PIN_13_FUNCTION_TYPE}
-    children:
-    - type: Values
-      children:
-      - type: User
-        attributes: {value: ''}
   - type: Integer
     attributes: {id: PIN_13_GROUP}
     children:
@@ -597,6 +590,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '0'}
+  - type: String
+    attributes: {id: PIN_13_PERIPHERAL_FUNCTION}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: ''}
   - type: String
     attributes: {id: PIN_13_PORT_GROUP}
     children:
@@ -800,13 +800,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '10'}
-  - type: String
-    attributes: {id: PIN_1_FUNCTION_TYPE}
-    children:
-    - type: Values
-      children:
-      - type: User
-        attributes: {value: ''}
   - type: Integer
     attributes: {id: PIN_1_GROUP}
     children:
@@ -814,6 +807,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '0'}
+  - type: String
+    attributes: {id: PIN_1_PERIPHERAL_FUNCTION}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: ''}
   - type: String
     attributes: {id: PIN_1_PORT_GROUP}
     children:
@@ -2172,13 +2172,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '30'}
-  - type: String
-    attributes: {id: PIN_5_FUNCTION_TYPE}
-    children:
-    - type: Values
-      children:
-      - type: User
-        attributes: {value: ''}
   - type: Integer
     attributes: {id: PIN_5_GROUP}
     children:
@@ -2186,6 +2179,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '1'}
+  - type: String
+    attributes: {id: PIN_5_PERIPHERAL_FUNCTION}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: ''}
   - type: String
     attributes: {id: PIN_5_PORT_GROUP}
     children:
@@ -2340,13 +2340,6 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '3'}
-  - type: String
-    attributes: {id: PIN_6_FUNCTION_TYPE}
-    children:
-    - type: Values
-      children:
-      - type: User
-        attributes: {value: ''}
   - type: Integer
     attributes: {id: PIN_6_GROUP}
     children:
@@ -2354,6 +2347,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '1'}
+  - type: String
+    attributes: {id: PIN_6_PERIPHERAL_FUNCTION}
+    children:
+    - type: Values
+      children:
+      - type: User
+        attributes: {value: ''}
   - type: String
     attributes: {id: PIN_6_PORT_GROUP}
     children:
@@ -2474,12 +2474,26 @@ children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
   - type: String
+    attributes: {id: PORT_GROUP_0_DIR}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: String
     attributes: {id: PORT_GROUP_0_OUT}
     children:
     - type: Values
       children:
       - type: Dynamic
         attributes: {id: core, value: '0x8000'}
+  - type: String
+    attributes: {id: PORT_GROUP_0_PAD_0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: PA00}
   - type: String
     attributes: {id: PORT_GROUP_0_PAD_10}
     children:
@@ -2516,6 +2530,20 @@ children:
       - type: Dynamic
         attributes: {id: core, value: PA23}
   - type: String
+    attributes: {id: PORT_GROUP_0_PAD_4}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: PA04}
+  - type: String
+    attributes: {id: PORT_GROUP_0_PINCFG0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: String
     attributes: {id: PORT_GROUP_0_PINCFG10}
     children:
     - type: Values
@@ -2550,6 +2578,20 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '0x1'}
+  - type: String
+    attributes: {id: PORT_GROUP_0_PINCFG4}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: Boolean
+    attributes: {id: PORT_GROUP_0_PIN_0_USED}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
   - type: Boolean
     attributes: {id: PORT_GROUP_0_PIN_10_USED}
     children:
@@ -2585,6 +2627,20 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
+  - type: Boolean
+    attributes: {id: PORT_GROUP_0_PIN_4_USED}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
+  - type: String
+    attributes: {id: PORT_GROUP_0_PMUX0}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
   - type: String
     attributes: {id: PORT_GROUP_0_PMUX1}
     children:
@@ -2599,6 +2655,13 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: '0x22'}
+  - type: String
+    attributes: {id: PORT_GROUP_0_PMUX2}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
   - type: String
     attributes: {id: PORT_GROUP_0_PMUX5}
     children:
@@ -2628,6 +2691,13 @@ children:
       - type: Dynamic
         attributes: {id: core, value: '0x40000000'}
   - type: String
+    attributes: {id: PORT_GROUP_1_OUT}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: String
     attributes: {id: PORT_GROUP_1_PAD_30}
     children:
     - type: Values
@@ -2635,7 +2705,35 @@ children:
       - type: Dynamic
         attributes: {id: core, value: PB30}
   - type: String
+    attributes: {id: PORT_GROUP_1_PAD_4}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: PB04}
+  - type: String
+    attributes: {id: PORT_GROUP_1_PAD_5}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: PB05}
+  - type: String
     attributes: {id: PORT_GROUP_1_PINCFG30}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: String
+    attributes: {id: PORT_GROUP_1_PINCFG4}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: String
+    attributes: {id: PORT_GROUP_1_PINCFG5}
     children:
     - type: Values
       children:
@@ -2648,8 +2746,29 @@ children:
       children:
       - type: Dynamic
         attributes: {id: core, value: 'true'}
+  - type: Boolean
+    attributes: {id: PORT_GROUP_1_PIN_4_USED}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
+  - type: Boolean
+    attributes: {id: PORT_GROUP_1_PIN_5_USED}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: 'false'}
   - type: String
     attributes: {id: PORT_GROUP_1_PMUX15}
+    children:
+    - type: Values
+      children:
+      - type: Dynamic
+        attributes: {id: core, value: '0x0'}
+  - type: String
+    attributes: {id: PORT_GROUP_1_PMUX2}
     children:
     - type: Values
       children:

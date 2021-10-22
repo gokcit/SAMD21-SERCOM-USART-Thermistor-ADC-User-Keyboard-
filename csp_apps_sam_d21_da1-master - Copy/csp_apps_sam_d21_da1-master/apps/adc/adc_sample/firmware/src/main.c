@@ -69,11 +69,110 @@ char errorMessage[] = "\r\n**** USART error has occurred ****\r\n";
 char receiveBuffer[RX_BUFFER_SIZE] = {};
 char data = 0;
 
+// Function Prototypes
+static void myTasks(void);
 static void EIC_User_Handler(uintptr_t context);
+//static void mySysTickEventHandler(uintptr_t context);
 
 
-void mySysTickEventHandler(uintptr_t context){
+void mySysTickEventHandler1(uintptr_t context){
+    printf("\n\r---------------------------------------------------------");
+    printf("\n\r                    Test                                 ");
+    printf("\n\r---------------------------------------------------------\n\r");
+}
+
+// *****************************************************************************
+// *****************************************************************************
+// Section: Main Entry Point
+// *****************************************************************************
+// *****************************************************************************
+
+int main ( void )
+{
+    
+    
+    /* Initialize all modules */
+    SYS_Initialize ( NULL );
+    
+        /* Send start message */
+    SERCOM3_USART_Write(&messageStart[0], sizeof(messageStart));
+   
+    
+    //SYSTICK_TimerCallbackSet(&mySysTickEventHandler, (uintptr_t) NULL);
+//    EIC_CallbackRegister(EIC_PIN_15, mySysTickEventHandler, (uintptr_t) NULL);
+//    EIC_CallbackRegister(EIC_PIN_4,EIC_User_Handler, 0);
+    EIC_CallbackRegister(EIC_PIN_15,EIC_User_Handler, 0);
+    
+    ADC_Enable();
+    //SYSTICK_TimerStart();
+    
+    printf("\n\r---------------------------------------------------------");
+    printf("\n\r                    Thermistor Demo                      ");
+    printf("\n\r---------------------------------------------------------\n\r");
+//    EIC_CallbackRegister(EIC_PIN_15, switch_handler, (uintptr_t) NULL);
+    
+//    DAC_DataWrite(dac_count);
+    while (1)
+    {
+        // Start ADC conversion
+        ADC_ConversionStart();
+
+        //Wait till ADC conversion result is available
+        while(!ADC_ConversionStatusGet())
+        {
+
+        };
+
+        /* Read the ADC result */
+        adc_count = ADC_ConversionResultGet();
+        input_voltage = adc_count * ADC_VREF / 4095U;
+
+//        printf("ADC Count = 0x%x, ADC Input Voltage = %d.%03d V \r", adc_count, (int)(input_voltage/1000), (int)(input_voltage%1000));
         
+        SYS_Tasks ( );
+        // Check if there is a received character
+        myTasks();    
+        
+    }
+
+    /* Execution should not come here during normal operation */
+
+    return ( EXIT_FAILURE );
+}
+
+static void myTasks(void){
+    uint16_t rxCounter=0;
+    if(SERCOM3_USART_ReceiverIsReady() == true)
+    {
+        // Raise the Interrupt Flag
+        if(SERCOM3_USART_ErrorGet() == USART_ERROR_NONE)
+        {
+            SERCOM3_USART_Read(&data, 1);
+
+            if((data == '\n') || (data == '\r'))
+            {
+                SERCOM3_USART_Write(&newline[0],sizeof(newline));
+                SERCOM3_USART_Write(&receiveBuffer[0],rxCounter);
+                SERCOM3_USART_Write(&newline[0],sizeof(newline));
+                rxCounter = 0;
+                LED_Toggle();
+            }
+            else
+            {
+                receiveBuffer[rxCounter++] = data;
+            }
+        }
+        else
+        {
+            SERCOM3_USART_Write(&errorMessage[0],sizeof(errorMessage));
+        }
+    }
+}
+
+static void EIC_User_Handler(uintptr_t context)
+{
+    LED_Toggle();
+            
 //    UserInputValid = SERCOM3_USART_Read(*userInput, 3);
 //    userInput1 = SERCOM3_USART_ReadByte();
     switch (input_voltage){
@@ -161,99 +260,8 @@ void mySysTickEventHandler(uintptr_t context){
         }
         printf("ADC Value = 0x%x, ADC Input Voltage = %d.%03d V \r\n\n", adc_count, (int)(input_voltage/1000), (int)(input_voltage%1000));
         printf("ADC Value = 0x%x\r", adc_count);
+
 }
-
-void mySysTickEventHandler1(uintptr_t context){
-    printf("\n\r---------------------------------------------------------");
-    printf("\n\r                    Test                 ");
-    printf("\n\r---------------------------------------------------------\n\r");
-}
-// *****************************************************************************
-// *****************************************************************************
-// Section: Main Entry Point
-// *****************************************************************************
-// *****************************************************************************
-
-int main ( void )
-{
-    //uint16_t rxCounter=0;
-    
-    /* Initialize all modules */
-    SYS_Initialize ( NULL );
-    LED_Set();
-    
-        /* Send start message */
-    SERCOM3_USART_Write(&messageStart[0], sizeof(messageStart));
-   
-    
-    //SYSTICK_TimerCallbackSet(&mySysTickEventHandler, (uintptr_t) NULL);
-//    EIC_CallbackRegister(EIC_PIN_15, mySysTickEventHandler, (uintptr_t) NULL);
-    EIC_CallbackRegister(EIC_PIN_15,EIC_User_Handler, 0);
-    
-//    ADC_Enable();
-    //SYSTICK_TimerStart();
-    
-//    printf("\n\r---------------------------------------------------------");
-//    printf("\n\r                    ADC Sample Demo                 ");
-//    printf("\n\r---------------------------------------------------------\n\r");
-//    EIC_CallbackRegister(EIC_PIN_15, switch_handler, (uintptr_t) NULL);
-    
-//    DAC_DataWrite(dac_count);
-    while (1)
-    {
-        SYS_Tasks ( );
-        // Check if there is a received character
-//        if(SERCOM3_USART_ReceiverIsReady() == true)
-//        {
-//            if(SERCOM3_USART_ErrorGet() == USART_ERROR_NONE)
-//            {
-//                SERCOM3_USART_Read(&data, 1);
-//
-//                if((data == '\n') || (data == '\r'))
-//                {
-//                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
-//                    SERCOM3_USART_Write(&receiveBuffer[0],rxCounter);
-//                    SERCOM3_USART_Write(&newline[0],sizeof(newline));
-//                    rxCounter = 0;
-//                    LED_Toggle();
-//                }
-//                else
-//                {
-//                    receiveBuffer[rxCounter++] = data;
-//                }
-//            }
-//            else
-//            {
-//                SERCOM3_USART_Write(&errorMessage[0],sizeof(errorMessage));
-//            }
-//        }
-        /* Start ADC conversion */
-//        ADC_ConversionStart();
-
-        /* Wait till ADC conversion result is available */
-//        while(!ADC_ConversionStatusGet())
-//        {
-//
-//        };
-//
-//        /* Read the ADC result */
-//        adc_count = ADC_ConversionResultGet();
-//        input_voltage = adc_count * ADC_VREF / 4095U;
-
-//        printf("ADC Count = 0x%x, ADC Input Voltage = %d.%03d V \r", adc_count, (int)(input_voltage/1000), (int)(input_voltage%1000));
-//        SYSTICK_DelayMs(500);
-    }
-
-    /* Execution should not come here during normal operation */
-
-    return ( EXIT_FAILURE );
-}
-
-static void EIC_User_Handler(uintptr_t context)
-{
-    LED_Toggle();
-}
-
 /*******************************************************************************
  End of File
 */

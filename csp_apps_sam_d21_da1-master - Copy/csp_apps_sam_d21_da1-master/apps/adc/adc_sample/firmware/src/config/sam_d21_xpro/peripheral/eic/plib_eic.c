@@ -83,7 +83,7 @@ void EIC_Initialize(void)
                               EIC_CONFIG_SENSE1_NONE  |
                               EIC_CONFIG_SENSE2_NONE  |
                               EIC_CONFIG_SENSE3_NONE  |
-                              EIC_CONFIG_SENSE4_NONE  |
+                              EIC_CONFIG_SENSE4_RISE | EIC_CONFIG_FILTEN4_Msk |
                               EIC_CONFIG_SENSE5_NONE  |
                               EIC_CONFIG_SENSE6_NONE  |
                               EIC_CONFIG_SENSE7_NONE ;

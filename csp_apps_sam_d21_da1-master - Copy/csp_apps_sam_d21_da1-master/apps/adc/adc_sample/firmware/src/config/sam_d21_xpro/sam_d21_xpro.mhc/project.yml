@@ -55,13 +55,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: 7A8067F683B387DF9A602D8CD93360ED
-- generatedChecksum: B3E55E4FAC935D99E919477586F670F8
+- generatedChecksum: 4275359D22FB27AD43D54BBD77E614D5
   logicalPath: config/sam_d21_xpro/peripheral/eic
   name: plib_eic.c
   physicalPath: peripheral/eic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: B3E55E4FAC935D99E919477586F670F8
+  userChecksum: 4275359D22FB27AD43D54BBD77E614D5
 - generatedChecksum: C3ECDED3D6301DB0DE622293ED615D21
   logicalPath: config/sam_d21_xpro/peripheral/evsys
   name: plib_evsys.c
@@ -69,13 +69,13 @@ files:
   security: NON_SECURE
   type: SOURCE
   userChecksum: C3ECDED3D6301DB0DE622293ED615D21
-- generatedChecksum: C04AE7D5A1AA2E09ABB9CAD1FF4F7DF5
+- generatedChecksum: 1FB159BD7841CB80A20CEA893AB7D365
   logicalPath: config/sam_d21_xpro/peripheral/nvic
   name: plib_nvic.c
   physicalPath: peripheral/nvic
   security: NON_SECURE
   type: SOURCE
-  userChecksum: C04AE7D5A1AA2E09ABB9CAD1FF4F7DF5
+  userChecksum: 1FB159BD7841CB80A20CEA893AB7D365
 - generatedChecksum: 8E76B0609233122F5E1694614CEC13B1
   logicalPath: config/sam_d21_xpro/peripheral/nvmctrl
   name: plib_nvmctrl.c
