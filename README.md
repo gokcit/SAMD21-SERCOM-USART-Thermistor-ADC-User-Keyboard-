@@ -10,7 +10,7 @@
 > Future: DMA, SPI and I2C
 
 ## Program Output
-![alt text](https://github.com/gokcit/SMT_Board_Training/blob/master/schematic.png)
+![alt text]()
 ## Block Diagram
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/harmony%20bd.png)
 ## State Diagram
