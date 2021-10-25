@@ -12,6 +12,6 @@
 ## Program Output
 ![alt text](https://github.com/gokcit/SMT_Board_Training/blob/master/schematic.png)
 ## Block Diagram
-![alt text](https://github.com/gokcit/SMT_Board_Training/blob/master/pcb%202d.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/harmony%20bd.png)
 ## State Diagram
 ![alt text](https://github.com/gokcit/SMT_Board_Training/blob/master/pcb%203d.png)
