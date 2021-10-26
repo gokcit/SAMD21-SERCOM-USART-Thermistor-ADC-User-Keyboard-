@@ -16,4 +16,4 @@
 ## State Diagram
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/state%20diagram.png)
 ## Voltage Divider
-![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/voltage%20divider.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/voltage%20divider%203.png)
