@@ -20,7 +20,7 @@
 ## MATLAB Lookup Table Generation
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/matlab%20ps.png)
 ## Equations
-  #### Thermistor Equation
+  ### Thermistor Equation
   ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/thermistor%20equation.png)
-  #### Voltage Divider
+  ### Voltage Divider
   ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/voltage%20divider%203.png)
