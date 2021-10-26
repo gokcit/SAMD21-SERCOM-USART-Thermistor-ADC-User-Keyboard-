@@ -1,4 +1,4 @@
-# SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-
+# SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard
 > A Harmony 3 Project where User requests the temperature with Keyboard Input or push button
 > Future: Client requesting temperature via I2C
 
@@ -14,4 +14,6 @@
 ## Block Diagram
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/harmony%20bd.png)
 ## State Diagram
-![alt text](https://github.com/gokcit/SMT_Board_Training/blob/master/pcb%203d.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/state%20diagram.png)
+## Voltage Divider
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/voltage%20divider.png)
