@@ -13,7 +13,7 @@
 ## Program Output
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/uart.png)
 ## Block Diagram
-![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/block%20diagram%202.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/block%20diagram%20final%20final.png)
 ## State Diagram
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/state%20diagram.png)
 ## MATLAB Lookup Table Generation
