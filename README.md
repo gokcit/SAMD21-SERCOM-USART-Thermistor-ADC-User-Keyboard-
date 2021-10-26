@@ -1,6 +1,6 @@
 # SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard
 > A Harmony 3 Project where User requests the temperature with Keyboard Input or push button
-- Future: Client requesting temperature via I2C
+- Future: Slave requesting temperature via I2C
 
 ## Hardware Stack
 - SAMD21 Xplained Pro (SAMD21J18A)
