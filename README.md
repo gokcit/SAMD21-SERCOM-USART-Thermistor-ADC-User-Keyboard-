@@ -10,7 +10,7 @@
 - Future: DMA, SPI and I2C
 
 ## Program Output
-![alt text]()
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/uart.png)
 ## Harmony Configurator
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/harmony%20bd.png)
 ## State Diagram
