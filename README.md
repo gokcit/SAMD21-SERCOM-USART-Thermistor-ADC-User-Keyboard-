@@ -3,7 +3,8 @@
 - Future: Slave requesting temperature via I2C
 
 ## Hardware Stack
-- SAMD21 Xplained Pro (SAMD21J18A) x2 (Master and Slave)
+- SAMD21 Xplained Pro (SAMLD21J18A)
+- SAML21 Xplained Pro (SAMLJ21J18B)
 - A thermistor
 ## Peripherals
 - ADC, USART, push button
