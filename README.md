@@ -2,7 +2,7 @@
 > A Harmony 3 Project where User requests the temperature with Keyboard Input or push button
 - Future: Slave requesting temperature via I2C
 
-## Hardware Stack
+## Hardware
 - SAMD21 Xplained Pro (SAMLD21J18A)
 - SAML21 Xplained Pro (SAMLJ21J18B)
 - A thermistor
@@ -24,6 +24,4 @@
   ### Voltage Divider
   ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/voltage%20divider%203.png)
 ## Harmony Configurator
-![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/adc.png)
-![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/uart.png)
-![alt text]https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/system.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/harmony%20bd.png)
