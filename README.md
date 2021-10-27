@@ -11,7 +11,7 @@
 - Future: DMA, SPI and I2C
 
 ## Program Output
-![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/uart.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/program%20output.png)
 ## Block Diagram
 ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/block%20diagram%20final%20final%20final.png)
 ## State Diagram
