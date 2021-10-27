@@ -7,7 +7,7 @@
 - SAML21 Xplained Pro (SAMLJ21J18B)
 - A thermistor
 ## Peripherals
-- ADC, USART, RTC, push button
+- ADC, USART, RTC, DAC, push button
 - Future: DMA, SPI and I2C
 
 ## Program Output
