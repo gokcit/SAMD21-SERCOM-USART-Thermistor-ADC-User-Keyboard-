@@ -24,4 +24,6 @@
   ### Voltage Divider
   ![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/voltage%20divider%203.png)
 ## Harmony Configurator
-![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/harmony%20bd.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/adc.png)
+![alt text](https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/uart.png)
+![alt text]https://github.com/gokcit/SAMD21-SERCOM-USART-Thermistor-ADC-User-Keyboard-/blob/main/system.png)
